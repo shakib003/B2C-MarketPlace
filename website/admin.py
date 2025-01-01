@@ -1,19 +1,15 @@
 # code related to admin / Viewing shop items / Updating Orders
 ##
 
-from flask import Blueprint
-
-admin = Blueprint('admin', __name__) 
-
-# from flask import Blueprint, render_template, flash, send_from_directory, redirect
-# from flask_login import login_required, current_user
+from flask import Blueprint, render_template, flash, send_from_directory, redirect
+from flask_login import login_required, current_user
 # from .forms import ShopItemsForm, OrderForm
 # from werkzeug.utils import secure_filename
 # from .models import Product, Order, Customer
 # from . import db
 
 
-# admin = Blueprint('admin', __name__)
+admin = Blueprint('admin', __name__)
 
 
 # @admin.route('/media/<path:filename>')
