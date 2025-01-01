@@ -74,3 +74,4 @@ class Order(db.Model):
 
     def __str__(self):
         return '<Order %r>' % self.id
+    
