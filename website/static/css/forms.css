@@ -73,8 +73,28 @@ body{
     border-radius: 25px;
     transition: all 0.3s ease;
 }
-.base .base-content .form .buttons input:hover, .base .base-content .form .buttons a:hover{
-    background: transparent;
-    border: 1px solid #fff;
+.base .base-content .form .buttons input, 
+.base .base-content .form .buttons a {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 18px; /* Slightly smaller font size */
+    padding: 5px 15px; /* Reduce padding for smaller buttons */
+    text-decoration: none;
+    color: #fff;
+    background: #20D489;
+    border: 2px solid #20D489;
+    border-radius: 25px;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
+
+.base .base-content .form .buttons input:hover, 
+.base .base-content .form .buttons a:hover {
+    background: transparent; /* Make the background transparent */
+    color: #20D489; /* Change text color */
+    border: 2px solid #fff; /* Highlight border color */
+    transform: scale(1.1); /* Slightly enlarge the button */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for emphasis */
+}
+
+
 
