@@ -15,9 +15,9 @@ def create_database():
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'hbnwdvbn ajnbsjn ahe'
-    # app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
 
-    # db.init_app(app)
+    db.init_app(app)
 
     # @app.errorhandler(404)
     # def page_not_found(error):
@@ -39,6 +39,10 @@ def create_app():
     app.register_blueprint(views, url_prefix='/') # localhost:5000/about-us
     app.register_blueprint(auth, url_prefix='/') # localhost:5000/auth/change-password
     app.register_blueprint(admin, url_prefix='/')
+
+
+    with app.app_context():
+        create_database()
 
 
     return app
