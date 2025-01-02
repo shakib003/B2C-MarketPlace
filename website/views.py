@@ -151,10 +151,21 @@ def remove_cart():
 
         return jsonify(data)
 
-
+unique_numbers = set()
 @views.route('/place-order')
 @login_required
+# Set to store previously generated numbers
+
+
 def place_order():
+
+    def generate_unique_8_digit():
+        while True:
+            number = random.randint(10000000, 99999999)
+            if number not in unique_numbers:
+                unique_numbers.add(number)
+                return number
+
     customer_cart = Cart.query.filter_by(customer_link=current_user.id)
     if customer_cart:
         try:
@@ -171,7 +182,7 @@ def place_order():
                 new_order.quantity = item.quantity
                 new_order.price = item.product.current_price
                 new_order.status = "Placed" #create_order_response['invoice']['state'].capitalize()
-                new_order.payment_id = random.randint(10000000, 99999999)
+                new_order.payment_id = generate_unique_8_digit()
 
                 new_order.product_link = item.product_link
                 new_order.customer_link = item.customer_link
